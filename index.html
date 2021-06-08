@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script>
+		var exampleArr = [2, 5, 9, 2];
+
+		function exampleFunction(val, index, arr) {
+			if (val % 2 === 0) {
+				return true;
+			} 
+
+			return false;
+		}
+
+
+		// indexOf
+
+		function customIndexOf(arr, searchElement, fromIndex = 0) {
+			if (fromIndex < 0) {
+				fromIndex += arr.length 
+			}
+
+			for (var i = fromIndex; i <= arr.length - 1; i++) {
+				if(arr[i] === searchElement) {
+					return i;
+				}
+			}
+			return -1;
+		}
+
+		console.log(customIndexOf(exampleArr, 2, -1));
+
+
+		// lastIndexOf
+
+		function customLastIndexOf(arr, searchElement, fromIndex = 0) {
+			var startVal = arr.length;
+
+			if (fromIndex > 0) {
+				startVal = fromIndex;
+			} else {
+				startVal += fromIndex 
+			}
+
+			for (var i = startVal; i >= 0; i--) {
+				if(arr[i] === searchElement) {
+					return i;
+				}
+			}
+			return -1;
+		}
+
+		console.log(customLastIndexOf(exampleArr, 1, 2));
+
+
+		// find
+
+		function customFind(arr, callback) {
+
+			for (var i = 0; i <= arr.length - 1; i++) {
+			 	if (callback(arr[i], i, arr)) {
+			 		return arr[i];
+			 	}
+			}
+			return undefined;
+		}
+
+		console.log(customFind(exampleArr, exampleFunction));
+
+
+		// findIndex
+
+		function customFindIndex(arr, callback) {
+
+			for (var i = 0; i <= arr.length - 1; i++) {
+			 	if (callback(arr[i], i, arr)) {
+			 		return i;
+			 	}
+			}
+			return -1;
+		}
+
+		console.log(customFindIndex(exampleArr, exampleFunction));
+
+
+		// includes
+
+		function customIncludes(arr, searchElement, fromIndex = 0) {
+			if (fromIndex < 0) {
+				fromIndex += arr.length 
+			}
+
+			for (var i = fromIndex; i <= arr.length - 1; i++) {
+				if(arr[i] === searchElement) {
+					return true;
+				}
+			}
+			return false;
+		}
+
+		console.log(customIncludes(exampleArr, 6));
+
+
+		// some
+
+		function customSome(arr, callback) {
+
+			for (var i = 0; i <= arr.length - 1; i++) {
+			 	if (callback(arr[i], i, arr)) {
+			 		return true;
+			 	}
+			}
+			return false;
+		}
+
+		console.log(customSome(exampleArr, exampleFunction));
+
+
+		// every
+
+		function customEvery(arr, callback) {
+
+			for (var i = 0; i <= arr.length - 1; i++) {
+			 	if (!callback(arr[i], i, arr)) {
+			 		return false;
+			 	}
+			}
+			return true;
+		}
+
+		console.log(customEvery(exampleArr, exampleFunction));
+
+	</script>
+</body>
+</html>
